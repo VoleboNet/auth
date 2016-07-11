@@ -1,0 +1,5 @@
+{
+	"ui":{
+		"greeting": "Hello! Fill your username and login:\n {url}"
+	}
+}
