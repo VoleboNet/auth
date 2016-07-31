@@ -20,6 +20,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 exports = module.exports = {
 	"extends": [
-		"@volebonet/volebonet"
+		path.join(__dirname, 'node_modules', 'eslint-config-volebonet', 'index.js')
 	],
 }
