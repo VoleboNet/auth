@@ -29,10 +29,8 @@ const _               = require('lodash');
 debug('initializing');
 
 let options = require('./config');
+debug(options);
 var app = vbexpress(options);
-
-// TODO : remove:
-_.merge(app.config, options);
 debug(app.config);
 
 app.hbs.layoutsDir = 'server/views/layouts/';
@@ -40,8 +38,10 @@ app.hbs.partialsDir = 'server/views/partials/';
 app.set('views', 'server/views/');
 
 
+
 var routes = require('./routes/index');
-app.use('/', routes);
+//app.lang.use(passport.initialize());
+app.lang.use(routes);
 
 app.start();
 

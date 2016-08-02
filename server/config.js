@@ -28,7 +28,7 @@ const debug         = require('debug')('volebonet:auth:server:config');
 const path          = require('path');
 
 var envname         = process.env.NODE_ENV || 'production';
-var config_path     = path.join(__dirname, 'etc', 'auth.json');
+var config_path     = path.join(process.cwd(), 'etc', 'auth.json');
 var config          = require(config_path);
 
 // ALWAYS: print config, when it is read from ENV:
