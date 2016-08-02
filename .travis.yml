@@ -23,7 +23,6 @@ language: node_js
 node_js:
   - node
   - 4
-  - 5
   - 6
 
 env:
@@ -45,6 +44,4 @@ before_script:
 script:
 #  - gulp build
   - npm test
-
-#after_script:
-#  - if [ $SENDCOVERAGE ]; then ./tools/coverage-calc.sh; ./tools/coverage-send.sh && rm -rf ./coverage; fi
+  - npm run lint

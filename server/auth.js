@@ -22,26 +22,46 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 require('dotenv').config({silent: true});
 
+const url             = require('url');
 const debug           = require('debug')('volebonet:auth:server:app');
 const vbexpress       = require('@volebonet/volebonet-express');
-const _               = require('lodash');
 
 debug('initializing');
 
 let options = require('./config');
-var app = vbexpress(options);
 
-// TODO : remove:
-_.merge(app.config, options);
-debug(app.config);
+let app = vbexpress(options);
 
+// TODO : move to options and use `path`. Do not use `server`
+// because we will build the app, and move it to DIST
 app.hbs.layoutsDir = 'server/views/layouts/';
 app.hbs.partialsDir = 'server/views/partials/';
 app.set('views', 'server/views/');
 
+// Required for generating callback url for 3d side services
+// ADVICE 1 : http://stackoverflow.com/a/10185427/1115187
+// ADVICE 2 : http://stackoverflow.com/a/15922426/1115187
+// TODO : need to refactor, it is not a clean solution:
+app.getRootUrl = function() {
 
-var routes = require('./routes/index');
-app.use('/', routes);
+	return url.format({
+		protocol: 'http',
+		host: '127.0.0.1',
+		pathname: '/'
+	})
+
+/*
+	return url.format({
+		protocol: req.protocol,
+		host: req.get('host'),
+		pathname: req.originalUrl
+	})
+*/
+}
+
+// TODO : it is a way of shit...
+var routes = require('./routes/index')(app);
+app.lang.use(routes);
 
 app.start();
 

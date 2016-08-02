@@ -22,12 +22,48 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 "use strict";
 
+const debug           = require('debug')('volebonet:auth:server:routes:index');
 const vbexpress       = require('@volebonet/volebonet-express');
-var router            = vbexpress.Router();
 
-/* GET home page. */
-router.get('/', function(req, res, next) {
-	res.render('index', { title: 'Express' });
-});
+let main = function route_main(app) {
 
-exports = module.exports = router;
+	let router = vbexpress.Router();
+
+	router.get('/', function(req, res, next) {
+
+		res.render('login');
+	});
+
+	router.post('/logout', function(req, res, next) {
+
+		debug('logout');
+		res.status(200).send('Logout');
+		//return next();
+	});
+
+	router.get('/success', function(req, res, next) {
+		debug('success');
+		res.status(200).json({
+			status: "success",
+			user: req.user,
+			account: req.account
+		});
+		//return next();
+	});
+
+	router.get('/fail', function(req, res, next) {
+		debug('fail');
+		res.status(401).send('Failed!');
+		//return next();
+	});
+
+	// ===================================
+	// Append strategies:
+	// ===================================
+	router.use(require('./local')(app));
+	router.use(require('./vk')(app));
+
+	return router;
+}
+
+exports = module.exports = main;

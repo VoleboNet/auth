@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "start": "node ./server/auth",
-    "test": "test"
+    "test": "`npm bin`/mocha",
+    "lint": "`npm bin`/eslint ./",
+    "coverage": "`npm bin`/istanbul cover `npm bin`/_mocha"
   },
   "repository": {
     "type": "git",
@@ -41,11 +43,14 @@
   "dependencies": {
     "debug": "~2.2.0",
     "dotenv": "^2.0.0",
-    "lodash": "^4.13.1"
+    "lodash": "^4.13.1",
+    "passport": "^0.3.2",
+    "passport-local": "^1.0.0",
+    "passport-vkontakte": "^0.3.1"
   },
   "devDependencies": {
-    "@volebonet/eslint-config-volebonet": "0.0.1",
-    "eslint": "^2.11.1",
+    "eslint-config-volebonet": "^1.1.0",
+    "eslint": "^3.1.1",
     "chai": "^3.5.0",
     "gulp": "^3.9.1",
     "gulp-eslint": "^2.0.0",
