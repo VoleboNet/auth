@@ -20,11 +20,13 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 --}}
 
-<h1>{{title}}</h1>
-<p>Welcome to {{title}}</p>
-<form action="login" method="POST">
-	<input type="text" name="username" value="maxkoryukov" />
-	<input type="password" name="password" />
-	<input type="hidden" name="redirectTo" value="volebo.net/" />
-	<input type="submit" value="Login" />
-</form>
+<section>
+	<h1>Login!</h1>
+
+	<form action="/local/auth-e/" method="POST">
+		<input type="text" name="username" value="maxkoryukov" />
+		<input type="password" name="password" />
+		<input type="hidden" name="redirectTo" value="volebo.net/" />
+		<input type="submit" value="Login" />
+	</form>
+</section>
