@@ -38,6 +38,7 @@ let main = function route_vkontakte_main(app) {
 
 	const vkid = process.env.VOLEBONET_AUTH_VK_ID;
 	const vkkey = process.env.VOLEBONET_AUTH_VK_KEY;
+	const vkcallbackuri = app.getRootUrl() + 'vk/auth-e/callback';
 
 	if (_.isNil(vkid) || _.isNil(vkkey)) {
 		// TODO : beautiful error
@@ -49,7 +50,7 @@ let main = function route_vkontakte_main(app) {
 		clientID:     vkid,
 		clientSecret: vkkey,
 		// NOTE: keep in sync with #callbackvk
-		callbackURL:  `${app.getRootUrl()}/vk/auth-e/callback`,
+		callbackURL:  vkcallbackuri,
 		profileFields: ['city', 'bdate', 'nickname'],
 		scope: ['email', 'friends', 'notify'],
 		apiVersion: '5.53',
@@ -85,11 +86,13 @@ let main = function route_vkontakte_main(app) {
 	// another one MW AFTER auth. Only before.
 	router.get('/vk/auth-e/', function(req, res, next) {
 		// TODO : save BACK URL
+		next();
 	}, passport.authenticate('vk'));
 
 
 	// DO NOT CHANGE this URL, it is registered in the external app.
 	// NOTE: keep in sync with #callbackvk
+	// TODO : add timeout here
 	router.get('/vk/auth-e/callback',
 		passport.authenticate('vk', { failureRedirect: '/fail' }),
 		function (req, res, next) {
