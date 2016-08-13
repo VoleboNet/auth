@@ -18,10 +18,8 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-const path = require('path');
-
 exports = module.exports = {
 	"extends": [
-		path.join(__dirname, 'node_modules', 'eslint-config-volebonet', 'index.js')
+		"volebo"
 	]
 }

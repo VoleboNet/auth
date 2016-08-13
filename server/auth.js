@@ -46,7 +46,8 @@ app.getRootUrl = function() {
 
 	return url.format({
 		protocol: 'http',
-		host: '127.0.0.1',
+		hostname: '127.0.0.1',
+		port: app.config.server.port,
 		pathname: '/'
 	})
 

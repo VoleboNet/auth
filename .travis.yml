@@ -37,11 +37,17 @@ cache:
   directories:
     - node_modules
 
-before_script:
+before_install:
   - npm install -g npm
+
+install:
+  - npm install
+  - npm install -g eslint-config-volebo
   - npm install -g gulp
+  - npm install -g bithound
 
 script:
 #  - gulp build
-  - npm test
+  - npm run test
   - npm run lint
+  - bithound check git@github.com:volebo/auth.git
