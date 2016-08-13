@@ -53,9 +53,9 @@
     "passport-vkontakte": "^0.3.2"
   },
   "devDependencies": {
-    "eslint-config-volebo": "^1.x",
-    "eslint": "^3.3.x",
     "chai": "^3.5.x",
+    "eslint": "^3.3.x",
+    "eslint-config-volebo": "^1.x",
     "gulp": "^3.9.x",
     "gulp-eslint": "^3.0.0",
     "gulp-less": "^3.1.0",

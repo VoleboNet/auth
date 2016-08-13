@@ -1,7 +1,7 @@
 # auth
 
 [![bitHound Overall Score](https://www.bithound.io/github/volebo/auth/badges/score.svg)](https://www.bithound.io/github/volebo/auth)
-[![NSP Status](https://nodesecurity.io/orgs/volebo/projects/a4319362-6983-4242-a415-e3d916032d2c/badge)](https://nodesecurity.io/orgs/volebo/projects/a4319362-6983-4242-a415-e3d916032d2c)
+[![NSP Status](https://nodesecurity.io/orgs/volebo/projects/3da205c6-dd84-4d66-a336-6266fb838439/badge)](https://nodesecurity.io/orgs/volebo/projects/3da205c6-dd84-4d66-a336-6266fb838439)
 
 Authentication service for volebo.net
 
