@@ -1,5 +1,5 @@
 {
-  "name": "@volebonet/auth",
+  "name": "@volebo/auth",
   "version": "0.0.1",
   "description": "Authentication for volebo.net",
   "main": "index.js",
@@ -11,15 +11,16 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/VoleboNet/auth.git"
+    "url": "git+https://github.com/volebo/auth.git"
   },
   "keywords": [
     "auth",
     "private",
-    "volebonet"
+    "volebo.net",
+    "volebo"
   ],
   "author": {
-    "name": "VoleboNet",
+    "name": "volebo",
     "url": "http://volebo.net"
   },
   "contributors": [
@@ -37,26 +38,29 @@
   },
   "license": "GPL-3.0",
   "bugs": {
-    "url": "https://github.com/VoleboNet/auth/issues"
+    "url": "https://github.com/volebo/auth/issues"
   },
-  "homepage": "https://github.com/VoleboNet/auth#readme",
+  "homepage": "https://github.com/volebo/auth#readme",
+  "depLocal": {
+    "@volebo/volebo-express": "^0.x"
+  },
   "dependencies": {
     "debug": "~2.2.0",
     "dotenv": "^2.0.0",
-    "lodash": "^4.13.1",
+    "lodash": "^4.15.0",
     "passport": "^0.3.2",
     "passport-local": "^1.0.0",
-    "passport-vkontakte": "^0.3.1"
+    "passport-vkontakte": "^0.3.2"
   },
   "devDependencies": {
-    "eslint-config-volebonet": "^1.1.0",
-    "eslint": "^3.1.1",
-    "chai": "^3.5.0",
-    "gulp": "^3.9.1",
-    "gulp-eslint": "^2.0.0",
+    "eslint-config-volebo": "^1.x",
+    "eslint": "^3.3.x",
+    "chai": "^3.5.x",
+    "gulp": "^3.9.x",
+    "gulp-eslint": "^3.0.0",
     "gulp-less": "^3.1.0",
     "gulp-rename": "^1.2.2",
-    "gulp-uglify": "^1.5.3",
-    "mocha": "^2.5.3"
+    "gulp-uglify": "^2.0.0",
+    "mocha": "^3.x"
   }
 }
