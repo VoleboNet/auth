@@ -31,7 +31,7 @@ const VKStrategy      = require('passport-vkontakte').Strategy;
 
 let main = function route_vkontakte_main(app) {
 
-	let router = vbexpress.Router();
+	let router = new vbexpress.Router();
 
 	debug('Environment expectation: VOLEBONET_AUTH_VK_ID');
 	debug('Environment expectation: VOLEBONET_AUTH_VK_KEY');
