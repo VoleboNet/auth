@@ -28,9 +28,9 @@ const passport        = require('passport');
 
 const LocalStrategy   = require('passport-local').Strategy;
 
-let main = function route_local_main(app) {
+let main = function route_local_main() {
 
-	let router = vbexpress.Router();
+	let router = new vbexpress.Router();
 
 	debug('Environment expectation: VOLEBONET_AUTH_LOCAL_SALT');
 	//const localsalt = process.env.VOLEBONET_AUTH_LOCAL_SALT;

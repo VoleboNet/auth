@@ -27,7 +27,7 @@ const vbexpress       = require('@volebonet/volebonet-express');
 
 let main = function route_main(app) {
 
-	let router = vbexpress.Router();
+	let router = new vbexpress.Router();
 
 	router.get('/', function(req, res, next) {
 
