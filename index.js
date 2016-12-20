@@ -1,4 +1,5 @@
 /*
+
 Authenticating service for volebo.net
 
 Copyright (C) 2016  Volebo.Net <volebo.net@gmail.com>
@@ -16,24 +17,10 @@ GNU General Public License for more details.
 
 You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
-*/
 
-/*
- * @module config
- */
+*/
 
 "use strict";
 
-const debug         = require('debug')('volebonet:auth:server:config');
-const path          = require('path');
-
-var envname         = process.env.NODE_ENV || 'production';
-var config_path     = path.join(process.cwd(), 'etc', 'auth.json');
-var config          = require(config_path);
-
-// ALWAYS: print config, when it is read from ENV:
-debug(`ENV: ${envname}`);
-
-if (!config.security) { config.security = {}; }
-
-exports = module.exports = config;
+const server = require('./server');
+server.start();

@@ -22,8 +22,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 "use strict";
 
-const vbexpress       = require('@volebonet/volebonet-express');
-const debug           = require('debug')('volebonet:auth:server:routes:local');
+const vbexpress       = require('@volebo/volebo-express');
+const debug           = require('debug')('volebo:www-auth:server:routes:local');
 const passport        = require('passport');
 
 const LocalStrategy   = require('passport-local').Strategy;
@@ -32,13 +32,13 @@ let main = function route_local_main() {
 
 	let router = new vbexpress.Router();
 
-	debug('Environment expectation: VOLEBONET_AUTH_LOCAL_SALT');
-	//const localsalt = process.env.VOLEBONET_AUTH_LOCAL_SALT;
+	debug('Environment expectation: VOLEBO_AUTH_LOCAL_SALT');
+	//const localsalt = process.env.VOLEBO_AUTH_LOCAL_SALT;
 
 	/*
 	if (_.isNil(localsalt)) {
 		// TODO : beautiful error
-		throw new Error('Expect to get in the environment: VOLEBONET_AUTH_LOCAL_SALT');
+		throw new Error('Expect to get in the environment: VOLEBO_AUTH_LOCAL_SALT');
 	}
 	*/
 
@@ -46,7 +46,6 @@ let main = function route_local_main() {
 		passReqToCallback: true
 	},
 	function(req, username, password, done) {
-
 
 		// TODO : convert user to internal structure, with:
 		// profile.provider

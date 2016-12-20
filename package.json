@@ -1,17 +1,17 @@
 {
-  "name": "@volebo/auth",
-  "version": "0.0.1",
+  "name": "@volebo/www-auth",
+  "version": "0.0.2",
   "description": "Authentication for volebo.net",
   "main": "index.js",
   "scripts": {
-    "start": "node ./server/auth",
+    "start": "node ./index",
     "test": "`npm bin`/mocha",
     "lint": "`npm bin`/eslint ./",
-    "coverage": "`npm bin`/istanbul cover `npm bin`/_mocha"
+    "coverage": "`npm bin`/istanbul cover `npm bin`/_mocha -- --reporter min"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/volebo/auth.git"
+    "url": "git+https://github.com/volebo/www-auth.git"
   },
   "keywords": [
     "auth",
@@ -38,9 +38,9 @@
   },
   "license": "GPL-3.0",
   "bugs": {
-    "url": "https://github.com/volebo/auth/issues"
+    "url": "https://github.com/volebo/www-auth/issues"
   },
-  "homepage": "https://github.com/volebo/auth#readme",
+  "homepage": "https://github.com/volebo/www-auth#readme",
   "depLocal": {
     "@volebo/volebo-express": "^0.x"
   },
@@ -55,12 +55,7 @@
   "devDependencies": {
     "chai": "^3.5.x",
     "eslint": "^3.3.x",
-    "eslint-config-volebo": "^1.x",
-    "gulp": "^3.9.x",
-    "gulp-eslint": "^3.0.0",
-    "gulp-less": "^3.1.0",
-    "gulp-rename": "^1.2.2",
-    "gulp-uglify": "^2.0.0",
+    "eslint-config-volebo": "x",
     "mocha": "^3.x"
   }
 }

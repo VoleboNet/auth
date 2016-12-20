@@ -23,20 +23,17 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 require('dotenv').config({silent: true});
 
 const url             = require('url');
-const debug           = require('debug')('volebonet:auth:server:app');
-const vbexpress       = require('@volebonet/volebonet-express');
+const debug           = require('debug')('volebo:www-auth:server');
+const vbexpress       = require('@volebo/volebo-express');
 
-debug('initializing');
+debug('init');
 
-let options = require('./config');
-
+let options = vbexpress.Config.readYaml(path.join(__dirname, 'config.yml'));
 let app = vbexpress(options);
 
-// TODO : move to options and use `path`. Do not use `server`
-// because we will build the app, and move it to DIST
-app.hbs.layoutsDir = 'server/views/layouts/';
-app.hbs.partialsDir = 'server/views/partials/';
-app.set('views', 'server/views/');
+app.hbs.layoutsDir  = path.join(__dirname, 'views', 'layouts');
+app.hbs.partialsDir = path.join(__dirname, 'views', 'partials');
+app.set('views', path.join(__dirname, 'views'));
 
 // Required for generating callback url for 3d side services
 // ADVICE 1 : http://stackoverflow.com/a/10185427/1115187
@@ -63,7 +60,5 @@ app.getRootUrl = function() {
 // TODO : it is a way of shit...
 var routes = require('./routes/index')(app);
 app.lang.use(routes);
-
-app.start();
 
 exports = module.exports = app;

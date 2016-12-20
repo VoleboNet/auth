@@ -21,33 +21,31 @@ sudo: false
 language: node_js
 
 node_js:
-  - node
-  - 4
   - 6
 
-env:
-  global:
-    - NODE_ENV=dev
-
-matrix:
-  allow_failures:
-    - node_js: 4
+# env:
+#   global:
+#     - NODE_ENV=dev
 
 cache:
   directories:
     - node_modules
 
 before_install:
-  - npm install -g npm
+  - npm config set spin false
+#  - npm install -g npm
+#  - npm install -g gulp
 
 install:
-  - npm install
-  - npm install -g eslint-config-volebo
-  - npm install -g gulp
+  - npm install -g codecov
   - npm install -g bithound
 
 script:
-#  - gulp build
-  - npm run test
+# - gulp build
   - npm run lint
-  - bithound check git@github.com:volebo/auth.git
+  - npm test
+  - npm run coverage
+  - bithound check git@github.com:$TRAVIS_REPO_SLUG.git
+
+after_success:
+  - codecov

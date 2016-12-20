@@ -22,8 +22,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 "use strict";
 
-const debug           = require('debug')('volebonet:auth:server:routes:index');
-const vbexpress       = require('@volebonet/volebonet-express');
+const debug           = require('debug')('volebo:www-auth:server:routes');
+const vbexpress       = require('@volebo/volebo-express');
 
 let main = function route_main(app) {
 

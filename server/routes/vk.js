@@ -22,8 +22,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 "use strict";
 
-const vbexpress       = require('@volebonet/volebonet-express');
-const debug           = require('debug')('volebonet:auth:server:routes:vk');
+const vbexpress       = require('@volebo/volebo-express');
+const debug           = require('debug')('volebo:www-auth:server:routes:vk');
 const _               = require('lodash');
 const passport        = require('passport');
 
@@ -33,17 +33,17 @@ let main = function route_vkontakte_main(app) {
 
 	let router = new vbexpress.Router();
 
-	debug('Environment expectation: VOLEBONET_AUTH_VK_ID');
-	debug('Environment expectation: VOLEBONET_AUTH_VK_KEY');
+	debug('Environment expectation: VOLEBO_AUTH_VK_ID');
+	debug('Environment expectation: VOLEBO_AUTH_VK_KEY');
 
-	const vkid = process.env.VOLEBONET_AUTH_VK_ID;
-	const vkkey = process.env.VOLEBONET_AUTH_VK_KEY;
+	const vkid = process.env.VOLEBO_AUTH_VK_ID;
+	const vkkey = process.env.VOLEBO_AUTH_VK_KEY;
 	const vkcallbackuri = app.getRootUrl() + 'vk/auth-e/callback';
 
 	if (_.isNil(vkid) || _.isNil(vkkey)) {
 		// TODO : beautiful error
-		throw new Error('Expect to get in the environment: VOLEBONET_AUTH_VK_ID ' +
-			'and VOLEBONET_AUTH_VK_KEY');
+		throw new Error('Expect to get in the environment: VOLEBO_AUTH_VK_ID ' +
+			'and VOLEBO_AUTH_VK_KEY');
 	}
 
 	passport.use('vk', new VKStrategy({
